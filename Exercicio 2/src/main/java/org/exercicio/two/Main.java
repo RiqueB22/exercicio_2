@@ -2,6 +2,9 @@ package org.exercicio.two;
 
 import java.util.Scanner;
 
+// programa que verifica se uma palavra palindromo
+// author: Henrique Bernardo
+
 public class Main {
     public static void main(String[] args) {
 
@@ -10,27 +13,25 @@ public class Main {
         System.out.print("Digite o palíndromo: ");
         String palavra = input.nextLine();
 
-        //variables for loop
+        //variaveis do loop
         int i = 0;
         int j = palavra.length()-1;
-        String palindromo = "";
 
-        //Check if is only character
-        if(palavra.matches(".*[a-zA-Z].*")){
-            //Check if is palindromo
+        //checa se tem só caracteres e numeros
+        if(palavra.matches(".*[a-zA-Z0-9].*")){
+            //Faça enquento o j < que o tamanho da palavra
             while(i<palavra.length()){
+                //Checa posições antagonicas da string
                 if (palavra.charAt(i) != palavra.charAt(j)) {
                     System.out.println("Não é um palindromo");
-                    System.exit(400);
-                } else {
-                    palindromo = "É um palindromo";
+                    return;
                 }
 
                 i++;
                 j--;
             }
 
-            System.out.println(palindromo);
+            System.out.println("É um palindromo");
         }else {
             System.out.println("Envie as palavras e sem caracteres especiais");
         }
